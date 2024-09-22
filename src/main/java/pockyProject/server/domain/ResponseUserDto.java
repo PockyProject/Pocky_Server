@@ -1,0 +1,39 @@
+package pockyProject.server.domain;
+
+import lombok.*;
+import pockyProject.server.entity.UserEntity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ResponseUserDto {
+
+    private String menuName;
+
+    private  String  userId;
+
+    private  String nickname;
+
+    private  String price;
+
+    private int menuImage;
+
+    private String bread;
+
+    private List<String> sauce=new ArrayList<>();
+
+    private List<String> topping=new ArrayList<>();
+
+    private String side;
+
+    private  String liquid;
+
+
+
+
+}
