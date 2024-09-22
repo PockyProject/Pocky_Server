@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: PockyDB
+      MYSQL_USER: centerfoward
+      MYSQL_PASSWORD: b08267410ab@
+    ports:
+      - "3000:3306"
+  maple-combat:
+    image: docker-springboot
+    container_name: pocky-server
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://52.78.155.26:3000/mapleCombat?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+      SPRING_DATASOURCE_USERNAME:
+      SPRING_DATASOURCE_PASSWORD:
