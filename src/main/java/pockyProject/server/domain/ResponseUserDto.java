@@ -13,9 +13,10 @@ import java.util.List;
 @Builder
 public class ResponseUserDto {
 
-    private String menuName;
 
     private  String  userId;
+
+    private String menuName;
 
     private  String nickname;
 
@@ -31,9 +32,21 @@ public class ResponseUserDto {
 
     private String side;
 
-    private  String liquid;
+    private  Boolean liquid;
 
 
-
+    public ResponseUserDto FromEntity(UserEntity user) {
+     return  new ResponseUserDto(
+             user.getUserId(),
+             user.getMenuName(),
+             user.getNickname(),
+             user.getPrice(),
+             user.getMenuImage(),
+             user.getBread(),
+             user.getSauce(),
+             user.getTopping(),
+             user.getSide(),
+             user.getLiquid());
+    }
 
 }
