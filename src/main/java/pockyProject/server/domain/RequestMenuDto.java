@@ -5,22 +5,35 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import pockyProject.server.entity.UserEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @RequiredArgsConstructor
 
 public class RequestMenuDto {
 
+
     private  String  userId;
+
+    private  int menuImage;
+
+
+    private  int age;
 
     private  String nickname;
 
-
     private  String bread;
 
-    private  String topping;
-
     private  String price;
+
+
+    private List<String> sauce=new ArrayList<>();
+
+    private List<String> topping=new ArrayList<>();
+
+
 
 
     public RequestMenuDto(UserEntity user) {

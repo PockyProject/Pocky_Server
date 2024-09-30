@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "listable")
+@Table(name = "order")
 @Getter
 @Setter
 @Builder
@@ -35,9 +35,6 @@ public class UserEntity {
     @Nullable
     private String nickname;
 
-    @Column(name = "price")
-    private String price;
-
     @Column(name = "menuimage")
     private int menuImage;
 
@@ -59,8 +56,7 @@ public class UserEntity {
     @Column(name = "liquid")
     private Boolean liquid;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+
 
     public static UserEntity FromToEntity(ResponseUserDto userDto) {
         UserEntity userEntity = UserEntity.builder()
@@ -71,7 +67,6 @@ public class UserEntity {
                 .sauce(userDto.getSauce())
                 .liquid(userDto.getLiquid())
                 .side(userDto.getSide())
-                .price(userDto.getPrice())
                 .menuImage(userDto.getMenuImage())
                 .build();
         return userEntity;
