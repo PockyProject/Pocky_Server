@@ -20,7 +20,6 @@ public class ResponseUserDto {
 
     private  String nickname;
 
-    private  String price;
 
     private int menuImage;
 
@@ -40,7 +39,6 @@ public class ResponseUserDto {
              user.getUserId(),
              user.getMenuName(),
              user.getNickname(),
-             user.getPrice(),
              user.getMenuImage(),
              user.getBread(),
              user.getSauce(),
