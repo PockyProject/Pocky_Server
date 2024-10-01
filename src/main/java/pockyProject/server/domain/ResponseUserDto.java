@@ -16,6 +16,8 @@ public class ResponseUserDto {
 
     private  String  userId;
 
+    private int age;
+
     private String menuName;
 
     private  String nickname;
@@ -37,6 +39,7 @@ public class ResponseUserDto {
     public ResponseUserDto FromEntity(UserEntity user) {
      return  new ResponseUserDto(
              user.getUserId(),
+             user.getAge(),
              user.getMenuName(),
              user.getNickname(),
              user.getMenuImage(),

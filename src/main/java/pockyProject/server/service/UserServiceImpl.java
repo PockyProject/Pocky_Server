@@ -4,12 +4,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pockyProject.server.dao.UserDAO;
 import pockyProject.server.domain.RequestMenuDto;
+import pockyProject.server.domain.ResponseLikedMenuDTO;
 import pockyProject.server.domain.ResponseUserDto;
+import pockyProject.server.entity.LikeMenuEntity;
 import pockyProject.server.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static pockyProject.server.entity.LikeMenuEntity.EntityFromLikeDTO;
 import static pockyProject.server.entity.UserEntity.FromToEntity;
 
 @Service
@@ -30,6 +33,31 @@ public class UserServiceImpl implements  UserService{
         UserEntity savedEntity = userDAO.insertUser(userEntity);
 
         return  userDto.FromEntity(savedEntity);
+
+        
+    }
+    @Override
+    public ResponseLikedMenuDTO saveLikedMenu(ResponseLikedMenuDTO userDto) {
+        // LikedDto -> LikeMenuEntity 변환
+        LikeMenuEntity likeMenuEntity = new LikeMenuEntity();
+        likeMenuEntity = EntityFromLikeDTO(userDto);
+        // LikeMenuEntity 저장
+        LikeMenuEntity savedEntity = userDAO.insertLikeMenu(likeMenuEntity);
+
+        return  userDto.FromLikeEntity(savedEntity);
+
+    }
+    public List<UserEntity> getAll(){
+        UserEntity user=new UserEntity();
+
+        ResponseUserDto userDto=new ResponseUserDto();
+
+        return userDAO.selectAllUser();
+    }
+
+}
+
+
 //        return ResponseUserDto.builder()
 //                .userId(savedEntity.getUserId())
 //                .nickname(savedEntity.getNickname())
@@ -41,16 +69,3 @@ public class UserServiceImpl implements  UserService{
 //                .price(savedEntity.getPrice())
 //                .menuImage(savedEntity.getMenuImage())
 //                .build();
-        
-    }
-
-
-
-    public List<UserEntity> getAll(){
-        UserEntity user=new UserEntity();
-
-        ResponseUserDto userDto=new ResponseUserDto();
-
-        return userDAO.selectAllUser();
-    }
-}

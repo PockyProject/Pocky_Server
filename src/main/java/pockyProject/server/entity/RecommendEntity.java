@@ -4,6 +4,8 @@ import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import pockyProject.server.controller.converter.StringListConvert;
+import pockyProject.server.domain.ResponseLikedMenuDTO;
+import pockyProject.server.domain.ResponseUserDto;
 
 import java.util.List;
 
@@ -16,7 +18,7 @@ import java.util.List;
 public class RecommendEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private int age;
@@ -41,4 +43,7 @@ public class RecommendEntity {
     @Column(name = "sauce")
     @Convert(converter = StringListConvert.class)
     private List<String> sauce;
+
+
+
 }

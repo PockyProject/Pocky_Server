@@ -2,7 +2,9 @@ package pockyProject.server.dao;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import pockyProject.server.entity.LikeMenuEntity;
 import pockyProject.server.entity.UserEntity;
+import pockyProject.server.repository.LikeMenuRepository;
 import pockyProject.server.repository.UserRepository;
 
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.List;
 public class UserDaoImpl implements  UserDAO{
 
     private  final UserRepository userRepository;
+
+    private  final LikeMenuRepository likeMenuRepository;
     @Override
     public UserEntity insertUser(UserEntity userEntity) {
 
@@ -22,5 +26,10 @@ public class UserDaoImpl implements  UserDAO{
     @Override
     public List<UserEntity> selectAllUser() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public LikeMenuEntity insertLikeMenu(LikeMenuEntity likeMenuEntity) {
+        return  likeMenuRepository.save(likeMenuEntity);
     }
 }
