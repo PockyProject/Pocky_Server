@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orderlist")
 @Getter
 @Setter
 @Builder
@@ -27,6 +27,8 @@ public class UserEntity {
     @Column(name = "user_id")
     @Nullable
     private String userId;
+
+    private  int age;
 
     @Column(name = "menuname")
     private String menuName;

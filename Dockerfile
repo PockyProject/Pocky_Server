@@ -12,6 +12,7 @@ VOLUME /tmp
 ARG JAR_FILE=build/libs/*.jar
 # or Maven
 # ARG JAR_FILE_PATH=target/*.jar
+ADD ${JAR_FILE} docker-springboot.jar
 
 COPY ${JAR_FILE} app.jar
 
