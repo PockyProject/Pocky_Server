@@ -1,5 +1,6 @@
 package pockyProject.server.service;
 
+import pockyProject.server.domain.ResponseLikedMenuDTO;
 import pockyProject.server.domain.ResponseUserDto;
 import pockyProject.server.entity.UserEntity;
 
@@ -12,4 +13,6 @@ public interface UserService {
 
     List<UserEntity> getAll();
 
+
+    ResponseLikedMenuDTO saveLikedMenu(ResponseLikedMenuDTO userDto);
 }

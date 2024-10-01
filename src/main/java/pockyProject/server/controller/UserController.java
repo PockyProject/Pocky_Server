@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pockyProject.server.domain.RequestMenuDto;
+import pockyProject.server.domain.ResponseLikedMenuDTO;
 import pockyProject.server.domain.ResponseUserDto;
 import pockyProject.server.entity.UserEntity;
 import pockyProject.server.service.UserService;
@@ -34,7 +35,6 @@ public class UserController {
 
         return result;
     }
-
     @PostMapping("/users/userpost")
     public ResponseEntity<ResponseUserDto> saveUser(@RequestBody ResponseUserDto userDto){
 
@@ -43,6 +43,16 @@ public class UserController {
         log.info(user.getNickname());
         log.info(user.getSauce().toString());
         return  ResponseEntity.status(HttpStatus.OK).body(user);
+
+    }
+
+    @PostMapping("/users/liked")
+    public ResponseEntity<ResponseLikedMenuDTO> saveLikedMenu(@RequestBody ResponseLikedMenuDTO LikedMenuDto){
+
+        ResponseLikedMenuDTO LikedUser=userService.saveLikedMenu(LikedMenuDto);
+        log.info(LikedUser.getUserId());
+        log.info(LikedUser.getNickname());
+        return  ResponseEntity.status(HttpStatus.OK).body(LikedUser);
 
     }
 
