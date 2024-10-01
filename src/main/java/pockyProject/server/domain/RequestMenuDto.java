@@ -3,6 +3,7 @@ package pockyProject.server.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import pockyProject.server.entity.RecommendEntity;
 import pockyProject.server.entity.UserEntity;
 
 import java.util.ArrayList;
@@ -26,9 +27,6 @@ public class RequestMenuDto {
 
     private  String bread;
 
-    private  String price;
-
-
     private List<String> sauce=new ArrayList<>();
 
     private List<String> topping=new ArrayList<>();
@@ -36,11 +34,12 @@ public class RequestMenuDto {
 
 
 
-    public RequestMenuDto(UserEntity user) {
+    public RequestMenuDto(RecommendEntity user) {
 
-        userId=user.getUserId();
-        nickname=user.getNickname();
+        menuImage=user.getMenuImage();
+        age=user.getAge();
         bread=user.getBread();
-     //   topping=user.getTopping();
+        topping=user.getTopping();
+        sauce=user.getSauce();
     }
 }

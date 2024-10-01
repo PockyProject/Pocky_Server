@@ -3,10 +3,10 @@ package pockyProject.server.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pockyProject.server.dao.UserDAO;
-import pockyProject.server.domain.RequestMenuDto;
 import pockyProject.server.domain.ResponseLikedMenuDTO;
 import pockyProject.server.domain.ResponseUserDto;
 import pockyProject.server.entity.LikeMenuEntity;
+import pockyProject.server.entity.RecommendEntity;
 import pockyProject.server.entity.UserEntity;
 
 import java.util.ArrayList;
@@ -47,12 +47,12 @@ public class UserServiceImpl implements  UserService{
         return  userDto.FromLikeEntity(savedEntity);
 
     }
-    public List<UserEntity> getAll(){
-        UserEntity user=new UserEntity();
+    public List<RecommendEntity> getRecommendList(){
+        RecommendEntity user=new RecommendEntity();
 
         ResponseUserDto userDto=new ResponseUserDto();
 
-        return userDAO.selectAllUser();
+        return userDAO.selectRecommendList();
     }
 
 }
