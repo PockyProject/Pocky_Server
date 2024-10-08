@@ -18,5 +18,5 @@ public interface UserService {
     ResponseLikedMenuDTO saveLikedMenu(ResponseLikedMenuDTO userDto);
 
 
-    UserJoinDTO joinUser(UserJoinDTO userDto);
+    void joinUser(UserJoinDTO userDto);
 }
