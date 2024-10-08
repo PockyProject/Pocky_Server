@@ -1,17 +1,10 @@
-package pockyProject.server.domain;
+package pockyProject.server.domain.res;
 
-import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pockyProject.server.controller.converter.StringListConvert;
 import pockyProject.server.entity.LikeMenuEntity;
-import pockyProject.server.entity.UserEntity;
 
 import java.util.List;
 

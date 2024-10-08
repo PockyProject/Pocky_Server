@@ -1,7 +1,7 @@
-package pockyProject.server.domain;
+package pockyProject.server.domain.res;
 
 import lombok.*;
-import pockyProject.server.entity.UserEntity;
+import pockyProject.server.entity.UserMenuEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class ResponseUserDto {
     private  Boolean liquid;
 
 
-    public ResponseUserDto FromEntity(UserEntity user) {
+    public ResponseUserDto FromEntity(UserMenuEntity user) {
      return  new ResponseUserDto(
              user.getUserId(),
              user.getAge(),

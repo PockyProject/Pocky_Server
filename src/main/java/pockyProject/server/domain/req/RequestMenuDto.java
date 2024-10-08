@@ -1,10 +1,9 @@
-package pockyProject.server.domain;
+package pockyProject.server.domain.req;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import pockyProject.server.entity.RecommendEntity;
-import pockyProject.server.entity.UserEntity;
 
 import java.util.ArrayList;
 import java.util.List;

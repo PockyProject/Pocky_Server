@@ -1,7 +1,8 @@
 package pockyProject.server.service;
 
-import pockyProject.server.domain.ResponseLikedMenuDTO;
-import pockyProject.server.domain.ResponseUserDto;
+import pockyProject.server.domain.res.ResponseLikedMenuDTO;
+import pockyProject.server.domain.res.ResponseUserDto;
+import pockyProject.server.domain.res.UserJoinDTO;
 import pockyProject.server.entity.RecommendEntity;
 
 import java.util.List;
@@ -15,4 +16,7 @@ public interface UserService {
 
 
     ResponseLikedMenuDTO saveLikedMenu(ResponseLikedMenuDTO userDto);
+
+
+    UserJoinDTO joinUser(UserJoinDTO userDto);
 }

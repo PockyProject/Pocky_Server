@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pockyProject.server.domain.RequestMenuDto;
-import pockyProject.server.domain.ResponseLikedMenuDTO;
-import pockyProject.server.domain.ResponseUserDto;
+import pockyProject.server.domain.req.RequestMenuDto;
+import pockyProject.server.domain.res.ResponseLikedMenuDTO;
+import pockyProject.server.domain.res.ResponseUserDto;
+import pockyProject.server.domain.res.UserJoinDTO;
 import pockyProject.server.entity.RecommendEntity;
-import pockyProject.server.entity.UserEntity;
 import pockyProject.server.service.UserService;
 
 import java.util.List;
@@ -36,13 +36,17 @@ public class UserController {
         return result;
         
     }
+    @PostMapping("/user/login")
+    public void userJoin(@RequestBody UserJoinDTO userDTO){
+             userService.joinUser(userDTO);
+    }
+
+
+
     @PostMapping("/users/userpost")
     public ResponseEntity<ResponseUserDto> saveUser(@RequestBody ResponseUserDto userDto){
 
         ResponseUserDto user=userService.saveUser(userDto);
-        log.info(user.getUserId());
-        log.info(user.getNickname());
-        log.info(user.getSauce().toString());
         return  ResponseEntity.status(HttpStatus.OK).body(user);
 
     }

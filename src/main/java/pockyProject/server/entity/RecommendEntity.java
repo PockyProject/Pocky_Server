@@ -4,8 +4,6 @@ import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import pockyProject.server.controller.converter.StringListConvert;
-import pockyProject.server.domain.ResponseLikedMenuDTO;
-import pockyProject.server.domain.ResponseUserDto;
 
 import java.util.List;
 

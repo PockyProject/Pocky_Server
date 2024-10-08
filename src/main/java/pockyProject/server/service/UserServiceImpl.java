@@ -3,21 +3,24 @@ package pockyProject.server.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pockyProject.server.dao.UserDAO;
-import pockyProject.server.domain.ResponseLikedMenuDTO;
-import pockyProject.server.domain.ResponseUserDto;
+import pockyProject.server.domain.res.ResponseLikedMenuDTO;
+import pockyProject.server.domain.res.ResponseUserDto;
+import pockyProject.server.domain.res.UserJoinDTO;
 import pockyProject.server.entity.LikeMenuEntity;
 import pockyProject.server.entity.RecommendEntity;
-import pockyProject.server.entity.UserEntity;
+import pockyProject.server.entity.UserMenuEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static pockyProject.server.entity.LikeMenuEntity.EntityFromLikeDTO;
-import static pockyProject.server.entity.UserEntity.FromToEntity;
+import static pockyProject.server.entity.UserMenuEntity.FromToEntity;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements  UserService{
+
+
 
     private final UserDAO userDAO;
     @Override
@@ -27,10 +30,10 @@ public class UserServiceImpl implements  UserService{
         }
 
         // UserDto -> UserEntity 변환 (Builder 패턴 사용)
-        UserEntity userEntity = new UserEntity();
+        UserMenuEntity userEntity = new UserMenuEntity();
         userEntity = FromToEntity(userDto);
         // UserEntity 저장
-        UserEntity savedEntity = userDAO.insertUser(userEntity);
+        UserMenuEntity savedEntity = userDAO.insertUser(userEntity);
 
         return  userDto.FromEntity(savedEntity);
 
@@ -47,6 +50,12 @@ public class UserServiceImpl implements  UserService{
         return  userDto.FromLikeEntity(savedEntity);
 
     }
+
+    @Override
+    public UserJoinDTO joinUser(UserJoinDTO userDto) {
+        userDto.
+    }
+
     public List<RecommendEntity> getRecommendList(){
         RecommendEntity user=new RecommendEntity();
 
