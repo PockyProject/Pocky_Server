@@ -8,6 +8,7 @@ import pockyProject.server.domain.res.ResponseUserDto;
 import pockyProject.server.domain.res.UserJoinDTO;
 import pockyProject.server.entity.LikeMenuEntity;
 import pockyProject.server.entity.RecommendEntity;
+import pockyProject.server.entity.UserEntity;
 import pockyProject.server.entity.UserMenuEntity;
 
 import java.util.ArrayList;
@@ -39,6 +40,8 @@ public class UserServiceImpl implements  UserService{
 
         
     }
+
+
     @Override
     public ResponseLikedMenuDTO saveLikedMenu(ResponseLikedMenuDTO userDto) {
         // LikedDto -> LikeMenuEntity 변환
@@ -51,10 +54,16 @@ public class UserServiceImpl implements  UserService{
 
     }
 
+
+
     @Override
-    public UserJoinDTO joinUser(UserJoinDTO userDto) {
-        userDto.
+    public void joinUser(UserJoinDTO userDto) {
+        UserEntity userEntity =new UserEntity();
+        userEntity=UserEntity.JoinToEntity(userDto);
+        userDAO.joinUser(userEntity);
     }
+
+
 
     public List<RecommendEntity> getRecommendList(){
         RecommendEntity user=new RecommendEntity();

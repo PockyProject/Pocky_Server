@@ -58,7 +58,6 @@ public class UserController {
         log.info(LikedUser.getUserId());
         log.info(LikedUser.getNickname());
         return  ResponseEntity.status(HttpStatus.OK).body(LikedUser);
-
     }
 
 }
