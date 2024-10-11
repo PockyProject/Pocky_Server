@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pockyProject.server.dao.UserDAO;
 import pockyProject.server.domain.res.ResponseLikedMenuDTO;
-import pockyProject.server.domain.res.ResponseUserDto;
+import pockyProject.server.domain.res.ResponseUserDTO;
 import pockyProject.server.domain.res.UserJoinDTO;
 import pockyProject.server.entity.LikeMenuEntity;
 import pockyProject.server.entity.RecommendEntity;
@@ -25,11 +25,10 @@ public class UserServiceImpl implements  UserService{
 
     private final UserDAO userDAO;
     @Override
-    public ResponseUserDto saveUser(ResponseUserDto userDto) {
+    public ResponseUserDTO saveUser(ResponseUserDTO userDto) {
         if (userDto.getSauce() == null) {
             userDto.setSauce(new ArrayList<>());
         }
-
         // UserDto -> UserEntity 변환 (Builder 패턴 사용)
         UserMenuEntity userEntity = new UserMenuEntity();
         userEntity = FromToEntity(userDto);
@@ -68,7 +67,7 @@ public class UserServiceImpl implements  UserService{
     public List<RecommendEntity> getRecommendList(){
         RecommendEntity user=new RecommendEntity();
 
-        ResponseUserDto userDto=new ResponseUserDto();
+        ResponseUserDTO userDto=new ResponseUserDTO();
 
         return userDAO.selectRecommendList();
     }
