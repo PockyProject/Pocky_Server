@@ -4,7 +4,7 @@ import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import pockyProject.server.controller.converter.StringListConvert;
-import pockyProject.server.domain.res.ResponseUserDto;
+import pockyProject.server.domain.res.ResponseUserDTO;
 
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class UserMenuEntity {
 
 
 
-    public static UserMenuEntity FromToEntity(ResponseUserDto userDto) {
+    public static UserMenuEntity FromToEntity(ResponseUserDTO userDto) {
         UserMenuEntity userEntity = UserMenuEntity.builder()
                 .userId(userDto.getUserId())
                 .nickname(userDto.getNickname())

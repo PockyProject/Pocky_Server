@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import pockyProject.server.domain.res.ResponseUserDto;
 import pockyProject.server.domain.res.UserJoinDTO;
 
 @Getter

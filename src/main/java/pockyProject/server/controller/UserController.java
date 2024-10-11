@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pockyProject.server.domain.req.RequestMenuDto;
 import pockyProject.server.domain.res.ResponseLikedMenuDTO;
-import pockyProject.server.domain.res.ResponseUserDto;
+import pockyProject.server.domain.res.ResponseUserDTO;
 import pockyProject.server.domain.res.UserJoinDTO;
 import pockyProject.server.entity.RecommendEntity;
 import pockyProject.server.service.UserService;
@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserController {
 
-
     private  final UserService userService;
 
     @GetMapping("/favor/getfavor")
@@ -36,17 +35,16 @@ public class UserController {
         return result;
         
     }
-    @PostMapping("/user/login")
+    @PostMapping("/user/join")
     public void userJoin(@RequestBody UserJoinDTO userDTO){
              userService.joinUser(userDTO);
     }
 
 
-
     @PostMapping("/users/userpost")
-    public ResponseEntity<ResponseUserDto> saveUser(@RequestBody ResponseUserDto userDto){
+    public ResponseEntity<ResponseUserDTO> saveUser(@RequestBody ResponseUserDTO userDto){
 
-        ResponseUserDto user=userService.saveUser(userDto);
+        ResponseUserDTO user=userService.saveUser(userDto);
         return  ResponseEntity.status(HttpStatus.OK).body(user);
 
     }
@@ -55,8 +53,6 @@ public class UserController {
     public ResponseEntity<ResponseLikedMenuDTO> saveLikedMenu(@RequestBody ResponseLikedMenuDTO LikedMenuDto){
 
         ResponseLikedMenuDTO LikedUser=userService.saveLikedMenu(LikedMenuDto);
-        log.info(LikedUser.getUserId());
-        log.info(LikedUser.getNickname());
         return  ResponseEntity.status(HttpStatus.OK).body(LikedUser);
     }
 

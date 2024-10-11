@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 
-public class ResponseUserDto {
+public class ResponseUserDTO {
 
 
     private  String  userId;
@@ -36,8 +36,8 @@ public class ResponseUserDto {
     private  Boolean liquid;
 
 
-    public ResponseUserDto FromEntity(UserMenuEntity user) {
-     return  new ResponseUserDto(
+    public ResponseUserDTO FromEntity(UserMenuEntity user) {
+     return  new ResponseUserDTO(
              user.getUserId(),
              user.getAge(),
              user.getMenuName(),
