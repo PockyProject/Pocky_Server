@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
 
 import java.time.LocalDateTime;
@@ -55,4 +56,17 @@ public class FeedEntity {
                 .deletedAt(feed.getDeleteDate())
                 .build();
     }
-}
+
+
+    public FeedEntity UpdateFeed(UpdateFeedDTO feed) {
+        return FeedEntity.builder()
+                .feedUid(feed.getFeedUid())
+                .title(feed.getTitle())
+                .content(feed.getContent())
+                .qrImage(feed.getQrImage())
+                .likeCount(feed.getLikeCount())
+                .updatedAt(LocalDateTime.now())
+                .build();
+    }
+    }
+

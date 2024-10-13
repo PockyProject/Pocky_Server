@@ -1,6 +1,7 @@
 package pockyProject.server.dao;
 
 import pockyProject.server.domain.req.RequestFeedDTO;
+import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.entity.feedEntity.FeedEntity;
 import java.util.List;
 
@@ -16,4 +17,12 @@ public interface FeedDAO {
 
 
     List<RequestFeedDTO> getFeedAll(String userId);
+
+
+
+
+    List<UpdateFeedDTO> updateFeed(String feedId,UpdateFeedDTO updateFeedDTO);
+
+
+    FeedEntity updateFeed(FeedEntity feedEntity);
 }
