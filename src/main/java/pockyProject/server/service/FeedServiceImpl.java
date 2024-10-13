@@ -1,17 +1,22 @@
 package pockyProject.server.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pockyProject.server.dao.FeedDAO;
-import pockyProject.server.dao.UserDAO;
+import pockyProject.server.domain.req.RequestFeedDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
 import pockyProject.server.entity.feedEntity.FeedEntity;
-import pockyProject.server.repository.UserRepository;
-import pockyProject.server.repository.feedRepo.FeedRepository;
 
 import static pockyProject.server.entity.feedEntity.FeedEntity.FeedToEntity;
 
 @Service
+@Transactional
+@Slf4j
 @RequiredArgsConstructor
 public class FeedServiceImpl implements FeedService {
 
@@ -25,5 +30,17 @@ public class FeedServiceImpl implements FeedService {
         FeedEntity feedEntity =new FeedEntity();
         feedEntity=FeedToEntity(responseFeedSaveDTO);
         feedDAO.insertFeed(feedEntity);
+    }
+
+    @Override
+    public List<RequestFeedDTO> GetFeed(String userId) {
+
+
+
+      log.info(feedDAO.getFeedAll(userId).toString());
+
+      return  feedDAO.getFeedAll(userId);
+
+
     }
 }
