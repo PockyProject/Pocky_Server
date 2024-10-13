@@ -3,6 +3,7 @@ package pockyProject.server.dao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import pockyProject.server.domain.req.RequestFeedDTO;
+import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.entity.feedEntity.FeedEntity;
 import pockyProject.server.repository.feedRepo.FeedRepository;
 import java.util.List;
@@ -32,6 +33,16 @@ public class FeedDaoImpl implements  FeedDAO{
     @Override
     public List<RequestFeedDTO> getFeedAll(String userId) {
         return feedRepository.findAllFeedBy(userId);
+    }
+
+    @Override
+    public List<UpdateFeedDTO> updateFeed(String feedId, UpdateFeedDTO updateFeedDTO) {
+        return feedRepository.UpdateFeedBy(feedId);
+    }
+
+    @Override
+    public FeedEntity updateFeed(FeedEntity feedEntity) {
+        return  feedRepository.save(feedEntity);
     }
 
 }

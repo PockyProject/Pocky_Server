@@ -3,6 +3,7 @@ package pockyProject.server.service;
 
 import java.util.List;
 import pockyProject.server.domain.req.RequestFeedDTO;
+import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
 import pockyProject.server.entity.feedEntity.FeedEntity;
 
@@ -14,4 +15,9 @@ public interface FeedService {
 
 
     List<RequestFeedDTO> GetFeed(String userUid);
+
+
+    UpdateFeedDTO UpdateFeed(String userUid, UpdateFeedDTO updateFeedDTO);
+
+
 }

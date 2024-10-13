@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pockyProject.server.domain.req.RequestFeedDTO;
+import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
 import pockyProject.server.entity.feedEntity.FeedEntity;
 import pockyProject.server.service.FeedService;
@@ -34,4 +35,15 @@ public class UserFeedController {
 
         return  ResponseEntity.status(HttpStatus.OK).body(feed);
     }
+
+    @PutMapping("update/feed/{feedid}")
+    public ResponseEntity<UpdateFeedDTO> updateFeed(@PathVariable("feedid")String feedid
+            , @RequestBody UpdateFeedDTO updateFeedDTO) {
+
+        UpdateFeedDTO updateFeed=feedService.UpdateFeed(feedid, updateFeedDTO);
+
+        return  ResponseEntity.status(HttpStatus.OK).body(updateFeed);
+
+    }
+
 }

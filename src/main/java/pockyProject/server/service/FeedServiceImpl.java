@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pockyProject.server.dao.FeedDAO;
 import pockyProject.server.domain.req.RequestFeedDTO;
+import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
 import pockyProject.server.entity.feedEntity.FeedEntity;
 
@@ -35,12 +36,17 @@ public class FeedServiceImpl implements FeedService {
     @Override
     public List<RequestFeedDTO> GetFeed(String userId) {
 
-
-
       log.info(feedDAO.getFeedAll(userId).toString());
 
       return  feedDAO.getFeedAll(userId);
 
+    }
 
+    @Override
+    public UpdateFeedDTO UpdateFeed(String userUid, UpdateFeedDTO updateFeedDTO) {
+        FeedEntity DTO=new FeedEntity();
+        FeedEntity updateFeed = DTO.UpdateFeed(updateFeedDTO);
+        feedDAO.insertFeed(updateFeed);
+        return  updateFeedDTO;
     }
 }

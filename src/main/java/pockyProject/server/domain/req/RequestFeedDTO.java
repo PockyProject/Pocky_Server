@@ -25,15 +25,15 @@ public class RequestFeedDTO {
 
 
 
-    public RequestFeedDTO requestFeedDTO(FeedEntity feed) {
-     return new RequestFeedDTO(
-             feed.getUserUid(),
-             feed.getTitle(),
-             feed.getContent(),
-             feed.getQrImage(),
-             feed.getLikeCount());
-
-
-    }
+//    public RequestFeedDTO requestFeedDTO(FeedEntity feed) {
+//     return new RequestFeedDTO(
+//             feed.getUserUid(),
+//             feed.getTitle(),
+//             feed.getContent(),
+//             feed.getQrImage(),
+//             feed.getLikeCount());
+//
+//
+//    }
 
 }
