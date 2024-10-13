@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import pockyProject.server.domain.req.RequestMenuDto;
+import pockyProject.server.domain.req.RequestMenuDTO;
 import pockyProject.server.domain.res.ResponseLikedMenuDTO;
 import pockyProject.server.domain.res.ResponseUserDTO;
 import pockyProject.server.domain.res.UserJoinDTO;
@@ -27,10 +27,10 @@ public class UserController {
     private  final UserService userService;
 
     @GetMapping("/favor/getfavor")
-    public List<RequestMenuDto> getRecommendMenu(){
+    public List<RequestMenuDTO> getRecommendMenu(){
         List<RecommendEntity> user=userService.getRecommendList();
-        List<RequestMenuDto> result= user.stream()
-                .map(o->new RequestMenuDto(o))
+        List<RequestMenuDTO> result= user.stream()
+                .map(o->new RequestMenuDTO(o))
                 .collect(Collectors.toList());
         return result;
         

@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @RequiredArgsConstructor
 
-public class RequestMenuDto {
+public class RequestMenuDTO {
 
 
     private  String  userId;
@@ -33,7 +33,7 @@ public class RequestMenuDto {
 
 
 
-    public RequestMenuDto(RecommendEntity user) {
+    public RequestMenuDTO(RecommendEntity user) {
 
         menuImage=user.getMenuImage();
         age=user.getAge();
@@ -41,4 +41,5 @@ public class RequestMenuDto {
         topping=user.getTopping();
         sauce=user.getSauce();
     }
+
 }

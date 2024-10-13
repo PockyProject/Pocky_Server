@@ -1,9 +1,19 @@
 package pockyProject.server.repository.feedRepo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import pockyProject.server.domain.req.RequestFeedDTO;
 import pockyProject.server.entity.feedEntity.FeedEntity;
-
+import java.util.List;
 @Repository
 public interface FeedRepository extends JpaRepository<FeedEntity,String> {
+
+    @Query("select new pockyProject.server.domain.req.RequestFeedDTO(f.userUid,f.title,f.content,f.qrImage,f.likeCount) from FeedEntity f where f.userUid=:userUid" )
+    List<RequestFeedDTO> findAllFeedBy(@Param("userUid") String userUid);
+
+   // String findFeedById(String userId);
+
+
 }
