@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface FeedRepository extends JpaRepository<FeedEntity,String> {
 
-    @Query("select new pockyProject.server.domain.req.RequestFeedDTO(f.userUid,f.title,f.content,f.qrImage,f.likeCount) from FeedEntity f where f.userUid=:userUid" )
+    @Query("select new pockyProject.server.domain.req.RequestFeedDTO(f.user.userUid,f.title,f.content,f.qrImage,f.likeCount) from FeedEntity f where f.user.userUid=:userUid" )
     List<RequestFeedDTO> findAllFeedBy(@Param("userUid") String userUid);
 
 

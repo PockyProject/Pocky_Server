@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
+import pockyProject.server.entity.UserEntity;
 
 import java.time.LocalDateTime;
 @Entity
@@ -21,8 +22,9 @@ public class FeedEntity {
     @Column(name = "feeduid")
     private String feedUid;
 
-    @Column(name = "useruid")
-    private String userUid;
+    @ManyToOne
+    @JoinColumn(name = "useruid")
+    private UserEntity user;
 
     private String title;
 
@@ -44,9 +46,11 @@ public class FeedEntity {
 
 
     public static FeedEntity FeedToEntity(ResponseFeedSaveDTO feed) {
+        UserEntity userEntity=new UserEntity();
+        userEntity.setUserUid(feed.getUserUid());
         return FeedEntity.builder()
                 .feedUid(feed.getFeedUid())
-                .userUid(feed.getUserUid())
+                .user(userEntity)
                 .title(feed.getTitle())
                 .content(feed.getContent())
                 .qrImage(feed.getQrImage())
