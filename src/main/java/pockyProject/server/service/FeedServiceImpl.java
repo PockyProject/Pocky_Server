@@ -49,4 +49,11 @@ public class FeedServiceImpl implements FeedService {
         feedDAO.insertFeed(updateFeed);
         return  updateFeedDTO;
     }
+
+    @Override
+    public void DeleteFeed(String userUid) {
+        feedDAO.deleteFeed(userUid);
+
+
+    }
 }

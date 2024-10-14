@@ -45,4 +45,9 @@ public class FeedDaoImpl implements  FeedDAO{
         return  feedRepository.save(feedEntity);
     }
 
+    @Override
+    public void deleteFeed(String feedUid) {
+        feedRepository.deleteById(feedUid);
+    }
+
 }
