@@ -22,4 +22,5 @@ public interface UserService {
     void joinUser(UserJoinDTO userDto);
 
     void deleteUserInfo(String userId);
+
 }
