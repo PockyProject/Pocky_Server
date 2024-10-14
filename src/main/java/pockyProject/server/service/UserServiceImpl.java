@@ -62,11 +62,13 @@ public class UserServiceImpl implements  UserService{
         userDAO.joinUser(userEntity);
     }
 
-//    @Override
-//    public void deleteUserInfo(String userId) {
-//
-//        userDAO.deleteUser(userId);
-//    }
+    @Override
+    public void deleteUserInfo(String userId) {
+
+        userDAO.deleteUser(userId);
+    }
+
+
 
 
     public List<RecommendEntity> getRecommendList(){

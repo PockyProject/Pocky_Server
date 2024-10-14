@@ -19,6 +19,6 @@ public interface UserDAO {
 
     UserEntity joinUser(UserEntity userEntity);
 
-
+   void deleteUser(String userId);
 
 }
