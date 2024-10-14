@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface UserService {
 
+
     ResponseUserDTO saveUser(ResponseUserDTO userDto);
 
 
@@ -19,4 +20,6 @@ public interface UserService {
 
 
     void joinUser(UserJoinDTO userDto);
+
+    void deleteUserInfo(String userId);
 }
