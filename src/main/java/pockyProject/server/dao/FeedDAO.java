@@ -25,4 +25,7 @@ public interface FeedDAO {
 
 
     FeedEntity updateFeed(FeedEntity feedEntity);
+
+
+    void deleteFeed(String FeedUid);
 }

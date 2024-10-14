@@ -45,5 +45,9 @@ public class UserFeedController {
         return  ResponseEntity.status(HttpStatus.OK).body(updateFeed);
 
     }
+    @DeleteMapping("delete/feed/{feedid}")
+    public void feedDelete(@PathVariable("feedid")String feedid) {
+        feedService.DeleteFeed(feedid);
 
+    }
 }

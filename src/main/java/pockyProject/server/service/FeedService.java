@@ -20,4 +20,5 @@ public interface FeedService {
     UpdateFeedDTO UpdateFeed(String userUid, UpdateFeedDTO updateFeedDTO);
 
 
+    void DeleteFeed(String userUid);
 }
