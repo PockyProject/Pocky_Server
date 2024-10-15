@@ -30,9 +30,6 @@ public class ResponseFeedSaveDTO {
 
     private LocalDateTime writeDate;
 
-    private LocalDateTime updateDate;
-
-    private LocalDateTime deleteDate;
 
 //    public ResponseFeedSaveDTO FromFeedToEntity(FeedEntity feed) {
 //
