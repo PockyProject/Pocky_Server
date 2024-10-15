@@ -55,9 +55,7 @@ public class FeedEntity {
                 .content(feed.getContent())
                 .qrImage(feed.getQrImage())
                 .likeCount(feed.getLikeCount())
-                .createdAt(feed.getWriteDate())
-                .updatedAt(feed.getUpdateDate())
-                .deletedAt(feed.getDeleteDate())
+                .createdAt(LocalDateTime.now())
                 .build();
     }
 
@@ -72,5 +70,8 @@ public class FeedEntity {
                 .updatedAt(LocalDateTime.now())
                 .build();
     }
+
+
+
     }
 
