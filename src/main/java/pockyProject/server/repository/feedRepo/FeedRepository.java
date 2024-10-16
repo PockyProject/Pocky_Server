@@ -11,12 +11,12 @@ import java.util.List;
 @Repository
 public interface FeedRepository extends JpaRepository<FeedEntity,String> {
 
-    @Query("select new pockyProject.server.domain.req.RequestFeedDTO(f.user.userUid,f.title,f.content,f.qrImage,f.likeCount) from FeedEntity f where f.user.userUid=:userUid" )
+    @Query("select new pockyProject.server.domain.req.RequestFeedDTO(f.user.userUid,f.title,f.content,f.qrImage,f.likeCount,f.menuImage) from FeedEntity f where f.user.userUid=:userUid" )
     List<RequestFeedDTO> findAllFeedBy(@Param("userUid") String userUid);
 
 
 
-    @Query("select new  pockyProject.server.domain.req.UpdateFeedDTO(T.feedUid,T.title, T.content,T.qrImage,T.likeCount) from FeedEntity T where T.feedUid=:feeUid")
+    @Query("select new  pockyProject.server.domain.req.UpdateFeedDTO(T.feedUid,T.title, T.content,T.qrImage,T.likeCount,T.menuImage) from FeedEntity T where T.feedUid=:feeUid")
     List<UpdateFeedDTO> UpdateFeedBy(@Param("feeUid") String feeUid);
 
 }

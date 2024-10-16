@@ -29,11 +29,19 @@ public class FeedEntity {
     private String title;
 
     private String content;
-    @Column(name = "qrimage",nullable = false)
-    private int qrImage;
+
+    @Column(name = "qrimage")
+    private Integer qrImage;
+
+    @Column(name = "menuimage")
+    private  Integer  menuImage;
+
+
 
     @Column(name = "likecount")
-    private int likeCount;
+    private Integer likeCount;
+
+
 
     @Column(name = "createdat")
     private LocalDateTime createdAt;
@@ -54,6 +62,7 @@ public class FeedEntity {
                 .title(feed.getTitle())
                 .content(feed.getContent())
                 .qrImage(feed.getQrImage())
+                .menuImage(feed.getMenuImage())
                 .likeCount(feed.getLikeCount())
                 .createdAt(LocalDateTime.now())
                 .build();
@@ -68,6 +77,7 @@ public class FeedEntity {
                 .qrImage(feed.getQrImage())
                 .likeCount(feed.getLikeCount())
                 .updatedAt(LocalDateTime.now())
+                .menuImage(feed.getMenuImage())
                 .build();
     }
 
