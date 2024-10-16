@@ -36,7 +36,7 @@ public class FeedServiceImpl implements FeedService {
     @Override
     public List<RequestFeedDTO> GetFeed(String userId) {
 
-      log.info(feedDAO.getFeedAll(userId).toString());
+    //  log.info(feedDAO.getFeedAll(userId).toString());
 
       return  feedDAO.getFeedAll(userId);
 

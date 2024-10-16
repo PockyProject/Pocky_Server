@@ -14,8 +14,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponseFeedSaveDTO {
-
-
     private  String feedUid;
 
     private  String userUid;
@@ -28,8 +26,10 @@ public class ResponseFeedSaveDTO {
 
     private  int likeCount;
 
-    private LocalDateTime writeDate;
+    private  int  menuImage;
 
+
+    private LocalDateTime writeDate;
 
 //    public ResponseFeedSaveDTO FromFeedToEntity(FeedEntity feed) {
 //
