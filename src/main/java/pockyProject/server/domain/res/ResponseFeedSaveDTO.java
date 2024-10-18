@@ -22,7 +22,7 @@ public class ResponseFeedSaveDTO {
 
     private  String content;
 
-    private  int  qrImage;
+    private  byte[] qrImage;
 
     private  int likeCount;
 

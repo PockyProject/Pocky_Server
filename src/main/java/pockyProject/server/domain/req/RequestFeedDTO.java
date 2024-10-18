@@ -19,11 +19,12 @@ public class RequestFeedDTO {
 
     private  String content;
 
-    private Integer qrImage;
+    private byte[] qrImage;
 
-    private  Integer  menuImage;
 
     private  Integer likeCount;
+
+    private  Integer  menuImage;
 
 
 

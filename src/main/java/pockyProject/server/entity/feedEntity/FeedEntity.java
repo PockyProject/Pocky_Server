@@ -1,17 +1,16 @@
 package pockyProject.server.entity.feedEntity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pockyProject.server.domain.req.UpdateFeedDTO;
+import pockyProject.server.domain.res.ResponseCommentSaveDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
 import pockyProject.server.entity.UserEntity;
 
 import java.time.LocalDateTime;
 @Entity
 @Getter
+@Setter
 @Builder
 @Table(name = "feed")
 @AllArgsConstructor
@@ -26,17 +25,18 @@ public class FeedEntity {
     @JoinColumn(name = "useruid")
     private UserEntity user;
 
+
     private String title;
+
 
     private String content;
 
     @Column(name = "qrimage")
-    private Integer qrImage;
+    @Lob
+    private byte[] qrImage;
 
     @Column(name = "menuimage")
     private  Integer  menuImage;
-
-
 
     @Column(name = "likecount")
     private Integer likeCount;
@@ -51,6 +51,9 @@ public class FeedEntity {
 
     @Column(name = "deletedat")
     private LocalDateTime deletedAt;
+
+
+
 
 
     public static FeedEntity FeedToEntity(ResponseFeedSaveDTO feed) {
@@ -81,7 +84,5 @@ public class FeedEntity {
                 .build();
     }
 
-
-
-    }
+}
 

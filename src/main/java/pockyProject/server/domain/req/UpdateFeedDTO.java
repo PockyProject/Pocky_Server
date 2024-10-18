@@ -19,22 +19,22 @@ public class UpdateFeedDTO {
 
     private   String content;
 
-    private  Integer  qrImage;
+    private  byte[]  qrImage;
 
     private   int     LikeCount;
 
-    private  Integer  menuImage;
+    private Integer menuImage;
 
     private LocalDateTime updateDate;
 
 
-    public UpdateFeedDTO(String feedUid, String title,String content, int qrImage, int likeCount,int menuImage) {
+    public UpdateFeedDTO(String feedUid, String title,String content, byte[] qrImage,int menuImage, int likeCount ) {
         this.feedUid = feedUid;
         this.title = title;
-        this.qrImage = qrImage;
+        this.menuImage = menuImage;
         this.LikeCount = likeCount;
         this.content = content;
-        this.menuImage = menuImage;
+        this.qrImage = qrImage;
     }
 
 
@@ -43,8 +43,8 @@ public class UpdateFeedDTO {
                 this.feedUid = feed.getFeedUid(),
                 this.content = feed.getContent(),
                 this.title = feed.getTitle(),
-                this.LikeCount = feed.getLikeCount(),
                 this.qrImage = feed.getQrImage(),
+                this.LikeCount = feed.getLikeCount(),
                 this.menuImage=feed.getMenuImage());
 
 
