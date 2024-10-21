@@ -6,7 +6,7 @@ import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseCommentSaveDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
 import pockyProject.server.entity.UserEntity;
-
+import java.util.List;
 import java.time.LocalDateTime;
 @Entity
 @Getter
@@ -31,9 +31,10 @@ public class FeedEntity {
 
     private String content;
 
+
+
     @Column(name = "qrimage")
-    @Lob
-    private byte[] qrImage;
+    private String qrImage;
 
     @Column(name = "menuimage")
     private  Integer  menuImage;
@@ -56,7 +57,7 @@ public class FeedEntity {
 
 
 
-    public static FeedEntity FeedToEntity(ResponseFeedSaveDTO feed) {
+    public static FeedEntity FeedToEntity(ResponseFeedSaveDTO feed ) {
         UserEntity userEntity=new UserEntity();
         userEntity.setUserUid(feed.getUserUid());
         return FeedEntity.builder()

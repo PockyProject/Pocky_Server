@@ -2,10 +2,10 @@ package pockyProject.server.dao;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-import pockyProject.server.domain.res.ResponseCommentSaveDTO;
+import pockyProject.server.domain.req.RequestCommentDTO;
 import pockyProject.server.entity.feedEntity.CommentEntity;
 import pockyProject.server.repository.feedRepo.CommentRepository;
-
+import java.util.List;
 
 @RequiredArgsConstructor
 @Repository
@@ -18,5 +18,10 @@ public class CommentDaoImpl implements  CommentDAO {
     public void saveComment(CommentEntity comment) {
 
         commentRepository.save(comment);
+    }
+
+    @Override
+    public List<RequestCommentDTO> commentAll(String feedUid) {
+        return commentRepository.FeedUidOrderBycreatedatAsc(feedUid);
     }
 }

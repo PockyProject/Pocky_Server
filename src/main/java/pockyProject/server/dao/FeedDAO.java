@@ -16,10 +16,10 @@ public interface FeedDAO {
     FeedEntity getUserId(String userId);
 
 
-    List<RequestFeedDTO> getFeedAll(String userId);
+    List<RequestFeedDTO> getFeedById(String userId);
 
 
-
+    List<FeedEntity> getFeedAll();
 
     List<UpdateFeedDTO> updateFeed(String feedId,UpdateFeedDTO updateFeedDTO);
 

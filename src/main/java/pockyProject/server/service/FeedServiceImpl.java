@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ public class FeedServiceImpl implements FeedService {
 
         FeedEntity feedEntity =new FeedEntity();
         feedEntity=FeedToEntity(responseFeedSaveDTO);
+
         feedDAO.insertFeed(feedEntity);
     }
 
@@ -37,8 +39,7 @@ public class FeedServiceImpl implements FeedService {
     public List<RequestFeedDTO> GetFeed(String userId) {
 
     //  log.info(feedDAO.getFeedAll(userId).toString());
-
-      return  feedDAO.getFeedAll(userId);
+      return  feedDAO.getFeedById(userId);
 
     }
 
@@ -53,7 +54,16 @@ public class FeedServiceImpl implements FeedService {
     @Override
     public void DeleteFeed(String userUid) {
         feedDAO.deleteFeed(userUid);
+    }
+
+    @Override
+    public List<RequestFeedDTO> GetFeedAll(){
+        List<FeedEntity> feed=feedDAO.getFeedAll();
+        List<RequestFeedDTO> result= feed.stream()
+                .map(o->new RequestFeedDTO().requestFeedDTO(o))
+                .collect(Collectors.toList());
 
 
+        return  result;
     }
 }

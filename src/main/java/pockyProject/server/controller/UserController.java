@@ -32,6 +32,7 @@ public class UserController {
         return result;
         
     }
+
     @PostMapping("/user/join")
     public void userJoin(@RequestBody UserJoinDTO userDTO){
              userService.joinUser(userDTO);

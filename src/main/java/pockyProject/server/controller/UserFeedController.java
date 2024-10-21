@@ -3,16 +3,19 @@ package pockyProject.server.controller;
 import lombok.RequiredArgsConstructor;
 
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import pockyProject.server.domain.req.RequestFeedDTO;
 import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseFeedSaveDTO;
-import pockyProject.server.entity.feedEntity.FeedEntity;
 import pockyProject.server.service.FeedService;
 
 @RestController
@@ -22,19 +25,28 @@ public class UserFeedController {
 
     private final FeedService feedService;
 
-    @PostMapping("/save/feed")
-    public void feedSave(@RequestBody ResponseFeedSaveDTO responseFeedSaveDTO) {
-
+   @PostMapping("/save/feed")
+    public void feedSave(@RequestBody ResponseFeedSaveDTO responseFeedSaveDTO) throws IOException {
+         log.info(responseFeedSaveDTO.getQrImage().toString());
             feedService.FeedSave(responseFeedSaveDTO);
     }
 
     @GetMapping("/get/feed/{userid}")
-    public ResponseEntity<List<RequestFeedDTO>>getFeed(@PathVariable("userid") String userid) {
+    public List<RequestFeedDTO>getFeed(@PathVariable("userid") String userid) {
 
-        List<RequestFeedDTO> feed=feedService.GetFeed(userid);
+        log.info(feedService.GetFeed(userid).toString());
 
-        return  ResponseEntity.status(HttpStatus.OK).body(feed);
+        return feedService.GetFeed(userid);
     }
+
+    @GetMapping("/get/feedAll")
+    public List<RequestFeedDTO> getFeedUser() {
+
+
+        return  feedService.GetFeedAll();
+
+    }
+
 
     @PutMapping("update/feed/{feedid}")
     public ResponseEntity<UpdateFeedDTO> updateFeed(@PathVariable("feedid")String feedid
@@ -48,6 +60,7 @@ public class UserFeedController {
     @DeleteMapping("delete/feed/{feedid}")
     public void feedDelete(@PathVariable("feedid")String feedid) {
         feedService.DeleteFeed(feedid);
+
 
     }
 

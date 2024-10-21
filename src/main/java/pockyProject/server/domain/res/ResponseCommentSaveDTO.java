@@ -14,6 +14,7 @@ public class ResponseCommentSaveDTO {
 
     private String writer;
 
+
     private String writeImage;
 
     private String content;

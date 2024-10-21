@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import pockyProject.server.entity.UserEntity;
 import pockyProject.server.entity.UserMenuEntity;
 import pockyProject.server.entity.feedEntity.FeedEntity;
-
+import java.util.List;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -22,7 +22,7 @@ public class ResponseFeedSaveDTO {
 
     private  String content;
 
-    private  byte[] qrImage;
+    private String qrImage;
 
     private  int likeCount;
 

@@ -21,4 +21,6 @@ public interface FeedService {
 
 
     void DeleteFeed(String userUid);
+
+    List<RequestFeedDTO> GetFeedAll();
 }
