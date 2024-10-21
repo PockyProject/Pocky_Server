@@ -31,8 +31,14 @@ public class FeedDaoImpl implements  FeedDAO{
     }
 
     @Override
-    public List<RequestFeedDTO> getFeedAll(String userId) {
+    public List<RequestFeedDTO> getFeedById(String userId) {
         return feedRepository.findAllFeedBy(userId);
+    }
+
+
+    @Override
+    public List<FeedEntity> getFeedAll() {
+        return feedRepository.findAll();
     }
 
     @Override

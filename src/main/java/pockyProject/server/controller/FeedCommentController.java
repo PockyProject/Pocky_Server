@@ -1,12 +1,13 @@
 package pockyProject.server.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import pockyProject.server.domain.req.RequestCommentDTO;
 import pockyProject.server.domain.res.ResponseCommentSaveDTO;
 import pockyProject.server.service.CommentService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,4 +21,12 @@ public class FeedCommentController {
         commentService.addComment(res);
     }
 
+
+
+    @GetMapping("/get/comment/{feedUid}")
+    public List<RequestCommentDTO> getAllComments(@PathVariable("feedUid") String feedUid) {
+
+        return commentService.getCommentAll(feedUid);
+
+    }
 }

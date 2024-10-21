@@ -3,8 +3,9 @@ package pockyProject.server.domain.req;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pockyProject.server.entity.feedEntity.FeedEntity;
 
+import pockyProject.server.entity.feedEntity.FeedEntity;
+import java.util.List;
 import java.time.LocalDateTime;
 
 
@@ -19,16 +20,16 @@ public class UpdateFeedDTO {
 
     private   String content;
 
-    private  byte[]  qrImage;
+    private String qrImage;
 
-    private   int     LikeCount;
+    private   int  LikeCount;
 
     private Integer menuImage;
 
     private LocalDateTime updateDate;
 
 
-    public UpdateFeedDTO(String feedUid, String title,String content, byte[] qrImage,int menuImage, int likeCount ) {
+    public UpdateFeedDTO(String feedUid, String title,String content, String  qrImage,int menuImage, int likeCount ) {
         this.feedUid = feedUid;
         this.title = title;
         this.menuImage = menuImage;

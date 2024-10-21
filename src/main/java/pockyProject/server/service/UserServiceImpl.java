@@ -72,9 +72,7 @@ public class UserServiceImpl implements  UserService{
 
 
     public List<RecommendEntity> getRecommendList(){
-        RecommendEntity user=new RecommendEntity();
 
-        ResponseUserDTO userDto=new ResponseUserDTO();
 
         return userDAO.selectRecommendList();
     }
