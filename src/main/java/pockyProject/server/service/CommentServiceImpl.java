@@ -4,15 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pockyProject.server.dao.CommentDAO;
 import pockyProject.server.domain.req.RequestCommentDTO;
-import pockyProject.server.domain.req.RequestFeedDTO;
 import pockyProject.server.domain.res.ResponseCommentSaveDTO;
+import pockyProject.server.domain.req.UpdateCommentDTO;
 import pockyProject.server.entity.feedEntity.CommentEntity;
-import pockyProject.server.entity.feedEntity.FeedEntity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,5 +29,25 @@ public class CommentServiceImpl implements CommentService {
         List<RequestCommentDTO> comments=commentDAO.commentAll(feedUid);
 
         return comments;
+    }
+
+    @Override
+    public UpdateCommentDTO updateComment(String commentUid, UpdateCommentDTO comment) {
+
+      if( commentUid!=commentDAO.findCommentById(comment.getCommentUid()))
+      {
+         throw  new IllegalArgumentException("댓글 정보가 다릅니다 ");
+      }
+
+        commentDAO.updateCommentEntity(comment);
+
+        return comment;
+    }
+
+    @Override
+    public void deleteComment(String commentUid) {
+
+        commentDAO.deleteCommentById(commentUid);
+
     }
 }

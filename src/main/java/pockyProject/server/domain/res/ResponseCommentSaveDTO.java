@@ -30,8 +30,4 @@ public class ResponseCommentSaveDTO {
 
     private LocalDateTime deletedAt;
 
-
-
-
-
 }

@@ -41,8 +41,6 @@ public class UserFeedController {
 
     @GetMapping("/get/feedAll")
     public List<RequestFeedDTO> getFeedUser() {
-
-
         return  feedService.GetFeedAll();
 
     }
@@ -51,11 +49,9 @@ public class UserFeedController {
     @PutMapping("update/feed/{feedid}")
     public ResponseEntity<UpdateFeedDTO> updateFeed(@PathVariable("feedid")String feedid
             , @RequestBody UpdateFeedDTO updateFeedDTO) {
-
         UpdateFeedDTO updateFeed=feedService.UpdateFeed(feedid, updateFeedDTO);
 
         return  ResponseEntity.status(HttpStatus.OK).body(updateFeed);
-
     }
     @DeleteMapping("delete/feed/{feedid}")
     public void feedDelete(@PathVariable("feedid")String feedid) {
