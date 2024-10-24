@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import pockyProject.server.domain.req.UpdateCommentDTO;
+import pockyProject.server.domain.req.UpdateFeedDTO;
 import pockyProject.server.domain.res.ResponseCommentSaveDTO;
 import pockyProject.server.entity.UserEntity;
 
@@ -52,9 +54,9 @@ public class CommentEntity {
 
 
         public CommentEntity DTOtoCommentEntity(ResponseCommentSaveDTO commentDto ) {
+
                 UserEntity user=new UserEntity();
                 user.setUserUid(commentDto.getUserUid());
-
                 FeedEntity feed=new FeedEntity();
                 feed.setFeedUid(commentDto.getFeedUid());
                 return CommentEntity.builder()
@@ -69,6 +71,25 @@ public class CommentEntity {
                         .updatedAt(commentDto.getUpdatedAt()) // updatedAt 설정 (null 처리)
                         .deletedAt(commentDto.getDeletedAt())      // deletedAt 설정
                         .build();
+
+
+        }
+
+
+
+
+        public CommentEntity UpdateCommentToEntity(UpdateCommentDTO comment) {
+                return CommentEntity.builder()
+                        .commentUid(comment.getCommentUid())
+                        .feedEntity(feedEntity)
+                        .userEntity(userEntity)
+                        .writer(comment.getWriter())
+                        .writerImage(comment.getWriteImage())
+                        .content(comment.getContent())
+                        .likeCount(comment.getLikeCount())
+                        .updatedAt(LocalDateTime.now())
+                        .build();
+
 
 
         }

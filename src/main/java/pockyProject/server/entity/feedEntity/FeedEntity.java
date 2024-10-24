@@ -85,5 +85,6 @@ public class FeedEntity {
                 .build();
     }
 
+
 }
 
